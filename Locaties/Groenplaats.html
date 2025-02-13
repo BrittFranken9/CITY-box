@@ -3,34 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groenplaats - Antwerpen</title>
+    <title>Groenplaats - Antwerp</title>
     <link rel="stylesheet" href="https://use.typekit.net/pgf8uwn.css">
-    <link rel="stylesheet" href="style_Markt.css"> <!-- Assuming your styles are in 'style.css' -->
+    <link rel="stylesheet" href="style_Markt.css">
 </head>
 <body>
-
     <!-- Header -->
-    <header class="header">
-        <img src="../logo.png" alt="Logo"> <!-- Same logo as in the map page -->
-    </header>
+    <div class="header">
+        <img src="../logo.png" alt="Logo">
+    </div>
+    
+    <!-- Overlay Content -->
+    <div class="overlay">
+        <h1>Groenplaats</h1>
+        <p>Located in the historic city centre near the Cathedral of Our Lady, Groenplaats is a lively square filled with history. Originally a cemetery, it was transformed into a public square in the late 18th century. Today, it is surrounded by cafés and restaurants, making it a popular spot for locals and visitors alike.</p>
+        
+        <!-- Image -->
+        <div class="image-container">
+            <img src="../AdobeStock_576575500_Editorial_Use_Only.jpeg" alt="Groenplaats Square" class="location-image">
+        </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <h1 class="page-title">Groenplaats</h1>
-        <p class="intro-text">Located in the historic city centre, near the Cathedral of Our Lady, Groenplaats is a rectangular square with a statue of Peter Paul Rubens in the middle. The square is surrounded by cafés and restaurants and is an important link between different parts of the city. Originally it served as a cemetery, but at the end of the 18th century it was transformed into a square.</p>
+        <!-- Sensory Box Description -->
+        <div class="box-description">
+            <div class="box-item">
+                <p><strong>Scent Diffuser:</strong> The aroma of fresh coffee from nearby cafés.</p>
+            </div>
+            <div class="box-item">
+                <p><strong>Sensory Item:</strong> Feel the cool touch of a historic stone bench.</p>
+            </div>
+            <div class="box-item">
+                <p><strong>Sound:</strong> The chatter of people and distant cathedral bells.</p>
+            </div>
+        </div>
 
-        <!-- Navigation Button back to map -->
-        <a href="../Navigate.html">
-            <button class="navigate-button">Back to map</button>
-        </a>    </main>
-    </main>
-
-    <script>
-        // Functie om terug te navigeren naar de kaart en de juiste locatie te vinden
-        function navigateToMap() {
-            window.location.href = 'index.html#map'; // Hier ga je naar de map-pagina (aanpassen als je URL anders is)
-        }
-    </script>
-
+        <!-- Navigation Buttons -->
+        <div class="button-container">
+            <a href="../Navigate.html">
+                <button class="navigate-button">Back to Map</button>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,33 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botanische tuin - Antwerpen</title>
+    <title>The Botanical Garden - Antwerp</title>
     <link rel="stylesheet" href="https://use.typekit.net/pgf8uwn.css">
-    <link rel="stylesheet" href="style_Markt.css"> <!-- Assuming your styles are in 'style.css' -->
+    <link rel="stylesheet" href="style_Markt.css">
 </head>
 <body>
-
     <!-- Header -->
-    <header class="header">
-        <img src="../logo.png" alt="Logo"> <!-- Same logo as in the map page -->
-    </header>
+    <div class="header">
+        <img src="../logo.png" alt="Logo">
+    </div>
+    
+    <!-- Overlay Content -->
+    <div class="overlay">
+        <h1>The Botanical Garden</h1>
+        <p>This green oasis is hidden away from the hustle and bustle of Antwerp and offers visitors peace and beauty. With its rare plants, winding paths and charming greenhouses, it is a popular spot for walkers and nature lovers.</p>
+        
+        <!-- Image -->
+        <div class="image-container">
+            <img src="../botanical.jpg" alt="Groenplaats Square" class="location-image">
+        </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <h1 class="page-title">The Botanical Garden</h1>
-        <p class="intro-text">This green oasis is hidden away from the hustle and bustle of Antwerp and offers visitors peace and beauty. With its rare plants, winding paths and charming greenhouses, it is a popular spot for walkers and nature lovers.</p>
+        <!-- Sensory Box Description -->
+        <div class="box-description">
+            <div class="box-item">
+                <p><strong>Scent Diffuser:</strong> The refreshing aroma of blooming flowers and fresh greenery fills the air, creating a natural and invigorating atmosphere.</p>
+            </div>
+            <div class="box-item">
+                <p><strong>Sensory Item:</strong> Soft blades of grass and delicate flower petals invite you to touch and experience a miniature botanical garden.</p>
+            </div>
+            <div class="box-item">
+                <p><strong>Sound:</strong> A gentle breeze rustling through the leaves provides a calming background sound, helping you unwind and feel at peace.</p>
+            </div>
+        </div>
 
-        <!-- Navigation Button back to map -->
-        <a href="../Navigate.html">
-            <button class="navigate-button">Back to map</button>
-        </a>    </main>
-
-    <script>
-        // Functie om terug te navigeren naar de kaart en de juiste locatie te vinden
-        function navigateToMap() {
-            window.location.href = 'index.html#map'; // Hier ga je naar de map-pagina (aanpassen als je URL anders is)
-        }
-    </script>
-
+        <!-- Navigation Buttons -->
+        <div class="button-container">
+            <a href="../Navigate.html">
+                <button class="navigate-button">Back to Map</button>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
