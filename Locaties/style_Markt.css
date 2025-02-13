@@ -64,6 +64,7 @@ body {
 
 .navigate-button {
     background-color: #FFA400;
+    text-decoration: none;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -76,9 +77,11 @@ body {
 
 .navigate-button:hover {
     background-color: #E4027C;
+    text-decoration: none;
 }
 
 .main-content {
     margin: 0 4px;
     align-content: left;
+    text-decoration: none;
 }
