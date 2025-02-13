@@ -1,0 +1,103 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; 
+background-color: #fff;}
+
+/* Splash Screen */
+.splash img { width: 100%; }
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.header img { width: 100px; }
+
+.splash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+}
+
+.main-content {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    text-align: center;
+    padding: 10px;
+    background: #f8f9fa;
+}
+
+#map {
+    height: 80vh;
+    width: 100%;
+}
+
+body, .popup-content, .popup-title, .popup-link, .navigate-button {
+    font-family: 'Arbotek', sans-serif;  /* Als Arbotek de naam is die Typekit gebruikt */
+}
+
+/* Rest van de popup styling */
+.popup-content {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Titel van de locatie */
+.popup-title {
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FFA400; /* Groene kleur voor de titel */
+    margin-bottom: 12px;
+}
+
+/* Link naar de locatiepagina */
+.popup-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.popup-link:hover {
+    text-decoration: underline;
+}
+
+/* Knop voor navigatie */
+.navigate-button {
+    background-color: #FFA400;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 4px;
+}
+
+.navigate-button:hover {
+    background-color: #FFA400;
+}
+
+/* Kleine aanpassingen voor het popupvenster */
+.leaflet-popup-content {
+    padding: 10px;
+    border-radius: 8px;
+}

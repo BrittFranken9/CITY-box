@@ -1,0 +1,84 @@
+
+/* Algemene styling */
+body, .popup-content, .popup-title, .popup-link, .navigate-button, .page-title {
+    font-family: 'Arbotek', sans-serif;  /* Als Arbotek de naam is die Typekit gebruikt */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    width: 100px;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: lighter;
+    color: #FFA400;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 32px;
+}
+
+.intro-text {
+    font-size: 16px;
+    font-weight: light;
+    color: #333;
+    text-align: left;
+    margin-top: 60px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+#box-info {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #555;
+}
+
+.navigate-button {
+    background-color: #FFA400;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    display: block;  /* Zorgt ervoor dat de knop als blok element wordt weergegeven */
+    margin: 30px 0 0 32px;  /* Zorgt voor marge aan de bovenkant en links */
+}
+
+.navigate-button:hover {
+    background-color: #E4027C;
+}
+
+.main-content {
+    margin: 0 4px;
+    align-content: left;
+}
