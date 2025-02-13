@@ -1,0 +1,180 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background-color: #fff; }
+
+/* Splash Screen */
+.splash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 2000; /* Splash komt voor de footer en alles andere */
+}
+
+.splash img { width: 100%; }
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.header img { width: 100px; }
+
+.main-content {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding-top: 90px; /* Header hoogte */
+    position: relative;
+}
+
+/* Map Container Styling */
+.map-container {
+    position: fixed;
+    background-color: #fff;
+    height: 50vh;
+    width: 90%;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    z-index: 1; /* Kaart komt boven de lijst */
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Location List */
+.location-list {
+    position: absolute;
+    top: 62vh;  /* Start direct onder de kaart */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    overflow-y: auto;
+    padding: 10px;
+    background: white;
+    z-index: 0; /* Lijst komt achter de kaart */
+}
+
+.location-list ul {
+    list-style: none;
+}
+
+
+.location-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+
+.location-list a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 32px; /* Zet de lijn 32px van de linkerkant */
+    width: 70%; /* Lengte van de lijn, je kunt dit aanpassen */
+    height: 1px; /* Dikte van de lijn */
+    background-color: #ddd; /* Kleur van de lijn */
+}
+
+
+.location-list a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.nav-buttons a {
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+}
+
+body, .popup-content, .popup-title, .popup-link, .navigate-button {
+    font-family: 'Arbotek', sans-serif;  /* Als Arbotek de naam is die Typekit gebruikt */
+}
+
+/* Rest van de popup styling */
+.popup-content {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Titel van de locatie */
+.popup-title {
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FFA400; /* Groene kleur voor de titel */
+    margin-bottom: 12px;
+}
+
+/* Link naar de locatiepagina */
+.popup-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.popup-link:hover {
+    text-decoration: underline;
+}
+
+/* Knop voor navigatie */
+.navigate-button {
+    background-color: #FFA400;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 4px;
+}
+
+.navigate-button:hover {
+    background-color: #FFA400;
+}
+
+/* Kleine aanpassingen voor het popupvenster */
+.leaflet-popup-content {
+    padding: 10px;
+    border-radius: 8px;
+}

@@ -101,3 +101,24 @@ body, .popup-content, .popup-title, .popup-link, .navigate-button {
     padding: 10px;
     border-radius: 8px;
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-buttons a {
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+}
