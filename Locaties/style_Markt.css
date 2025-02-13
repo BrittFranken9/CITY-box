@@ -64,15 +64,18 @@ body {
 
 .navigate-button {
     background-color: #FFA400;
-    text-decoration: none;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 8px 16px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 25px;
-    display: block;  /* Zorgt ervoor dat de knop als blok element wordt weergegeven */
-    margin: 30px 0 0 32px;  /* Zorgt voor marge aan de bovenkant en links */
+    margin-top: 4px;
+}
+
+.navigate-button a {
+    text-decoration: none;
+    color: white;
 }
 
 .navigate-button:hover {

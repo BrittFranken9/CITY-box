@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <link rel="stylesheet" href="https://use.typekit.net/pgf8uwn.css">
     <link rel="stylesheet" href="navigate.css">
+
+    <!-- Voeg dit toe in de <head> sectie van je HTML -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
 </head>
 <body>
 
@@ -61,15 +66,15 @@
     <script>
         // Kaart direct laden
         var map = L.map('map', { center: [51.2194, 4.4025], zoom: 13 });
-
+    
         // Snellere en aangepaste kaartstijl (licht thema)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://carto.com/">Carto</a>',
         }).addTo(map);
-
+    
         // **Pas hier de kleur aan** 🔴🟢🔵
         var markerColor = "#E4027C"; // Hier de gewenste kleur invullen (bijv. rood: "#ff0000")
-
+    
         // Dynamische SVG-marker met aangepaste kleur
         function createCustomIcon(color) {
             return L.divIcon({
@@ -83,7 +88,7 @@
                 popupAnchor: [0, -30]
             });
         }
-
+    
         var locations = [
             { lat: 51.22126764480753, lng: 4.400229026060655, name: 'Grote Markt', link: 'locaties/grote_markt.html' },
             { lat: 51.219115370542795, lng: 4.401079410717681, name: 'Groenplaats', link: 'locaties/groenplaats.html' },
@@ -91,11 +96,11 @@
             { lat: 51.21528638086056, lng: 4.410026483731699, name: 'Theaterplein', link: 'locaties/theaterplein.html' },
             { lat: 51.21377396246196, lng: 4.405849999271092, name: 'Botanische Tuin', link: 'locaties/botanische_tuin.html' }
         ];
-
+    
         // Voeg markers toe met een popup en een navigatieknop
         locations.forEach(loc => {
             var marker = L.marker([loc.lat, loc.lng], { icon: createCustomIcon(markerColor) }).addTo(map);
-
+    
             marker.bindPopup(`
                 <div class="popup-content">
                     <b class="popup-title">${loc.name}</b><br>
@@ -104,12 +109,36 @@
                 </div>
             `);
         });
-
-        // Functie om de kaart te centreren op de locatie
+    
+        // Functie om de kaart te centreren op de locatie en navigatie toe te voegen
         function navigateToLocation(lat, lng) {
-            map.setView([lat, lng], 16); // Zoom naar niveau 16 (je kunt dit aanpassen)
+            // Haal de locatie van de gebruiker (indien mogelijk) voor de startpunt
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var userLat = position.coords.latitude;
+                    var userLng = position.coords.longitude;
+    
+                    // Voeg de route toe met Leaflet Routing Machine
+                    var routeControl = L.Routing.control({
+                        waypoints: [
+                            L.latLng(userLat, userLng), // Startpunt van de gebruiker
+                            L.latLng(lat, lng) // Eindpunt (de locatie)
+                        ],
+                        routeWhileDragging: true,
+                        createMarker: function() { return null; }, // Verwijder markers van de route
+                        routeLineOptions: { 
+                            styles: [{ color: '#FF5733', weight: 5 }]
+                        }
+                    }).addTo(map);
+    
+                    // Zoom in op de route
+                    map.fitBounds(routeControl.getBounds());
+                });
+            } else {
+                alert("Geolocatie wordt niet ondersteund door deze browser.");
+            }
         }
-
+    
         // Splash screen snel verbergen
         setTimeout(() => {
             document.querySelector('.splash').style.opacity = '0'; // Fade-out effect
@@ -119,11 +148,12 @@
                 map.invalidateSize(); // Zorg dat de kaart correct laadt
             }, 500); // Na 0.5s volledig verbergen
         }, 1500); // Splash duurt nu maar 1.5 seconden
-
+    
         // Herteken de kaart bij vensterwijziging
         window.addEventListener("resize", () => {
             map.invalidateSize();
         });
     </script>
+    
 </body>
 </html>

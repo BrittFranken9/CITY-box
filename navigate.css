@@ -47,7 +47,7 @@ body { font-family: Arial, sans-serif; background-color: #fff; }
 .map-container {
     position: fixed;
     background-color: #fff;
-    height: 50vh;
+    height: 46vh;
     width: 90%;
     margin-left: 20px;
     margin-right: 20px;
@@ -64,11 +64,11 @@ body { font-family: Arial, sans-serif; background-color: #fff; }
 /* Location List */
 .location-list {
     position: absolute;
-    top: 62vh;  /* Start direct onder de kaart */
+    top: 60vh;  /* Start direct onder de kaart */
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 30vh;
     overflow-y: auto;
     padding: 10px;
     background: white;

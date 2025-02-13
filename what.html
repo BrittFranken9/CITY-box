@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antwerp Map Interface</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/pgf8uwn.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div class="splash">
+        <img src="APP.png" alt="Logo">
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <!-- Footer Section with Navigation -->
+    <footer class="footer">
+        <div class="nav-buttons">
+            <a href="index.html">
+                <img src="NAVIGATE/home.svg" alt="Home" class="nav-icon">
+            </a>
+            <a href="Navigate.html">
+                <img src="NAVIGATE/navigate.svg" alt="About" class="nav-icon">
+            </a>
+            <a href="profile.html">
+                <img src="NAVIGATE/profile.svg" alt="Contact" class="nav-icon">
+            </a>
+            <a href="what.html">
+                <img src="NAVIGATE/what.svg" alt="Settings" class="nav-icon">
+            </a>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+
+        // Splash screen snel verbergen
+        setTimeout(() => {
+            document.querySelector('.splash').style.opacity = '0'; // Fade-out effect
+            setTimeout(() => {
+                document.querySelector('.splash').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+                map.invalidateSize(); // Zorg dat de kaart correct laadt
+            }, 500); // Na 0.5s volledig verbergen
+        }, 1500); // Splash duurt nu maar 1.5 seconden
+
+    </script>
+</body>
+</html>

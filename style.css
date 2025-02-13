@@ -1,25 +1,34 @@
+/* Algemene instellingen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; 
-background-color: #fff;}
+body, .overlay {
+    font-family: 'Arbotek', sans-serif;  /* Als Arbotek de naam is die Typekit gebruikt */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    background-image: url('background.jpg'); /* Achtergrondafbeelding toevoegen */
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* Achtergrond vastzetten bij scrollen */
+}
 
 /* Splash Screen */
-.splash img { width: 100%; }
+.splash img {
+    width: 100%;
+}
 
 @keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
-
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    background: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-.header img { width: 100px; }
 
 .splash {
     position: fixed;
@@ -39,36 +48,67 @@ background-color: #fff;}
     height: 100%;
 }
 
+/* Header */
 .header {
-    text-align: center;
-    padding: 10px;
-    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background: rgba(255, 255, 255); /* Transparante achtergrond */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Header bovenop de achtergrond plaatsen */
+    width: 100%;
+    z-index: 2;
 }
 
+.header img {
+    width: 100px;
+}
+
+/* Map Container */
 #map {
     height: 80vh;
     width: 100%;
+    margin-top: 80px; /* Ruimte creëren voor de header */
+    z-index: 1;
 }
 
-body, .popup-content, .popup-title, .popup-link, .navigate-button {
-    font-family: 'Arbotek', sans-serif;  /* Als Arbotek de naam is die Typekit gebruikt */
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Footer bovenop de kaart plaatsen, maar onder de header */
 }
 
-/* Rest van de popup styling */
+.nav-buttons a {
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Popup en navigatie knoppen */
 .popup-content {
     font-size: 14px;
     color: #333;
 }
 
-/* Titel van de locatie */
 .popup-title {
     font-size: 20px;
     font-weight: lighter;
-    color: #FFA400; /* Groene kleur voor de titel */
+    color: #FFA400;
     margin-bottom: 12px;
 }
 
-/* Link naar de locatiepagina */
 .popup-link {
     text-decoration: none;
     color: #333;
@@ -80,7 +120,6 @@ body, .popup-content, .popup-title, .popup-link, .navigate-button {
     text-decoration: underline;
 }
 
-/* Knop voor navigatie */
 .navigate-button {
     background-color: #FFA400;
     color: white;
@@ -96,29 +135,118 @@ body, .popup-content, .popup-title, .popup-link, .navigate-button {
     background-color: #FFA400;
 }
 
-/* Kleine aanpassingen voor het popupvenster */
 .leaflet-popup-content {
     padding: 10px;
     border-radius: 8px;
 }
 
-.footer {
+/* Overlay for text and images on top of the background */
+.overlay {
     position: fixed;
-    bottom: 0;
+    margin-top: 80px;
+    margin-bottom: 120px;
+    padding-bottom: 120px;
+    top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    padding: 10px 0;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Allow content to scroll up */
+    align-items: center;
     text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 20px;
+    z-index: 1; /* Overlay is above other content */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-image: url('Achtergrond 2.png'); /* Set background image */
+    background-attachment: fixed; /* Fix background image while scrolling */
+    background-position: center; /* Center the background image */
+    background-size: cover; /* Cover the whole screen */
 }
 
-.nav-buttons a {
-    margin: 0 15px;
-    text-decoration: none;
+/* Header */
+.overlay h1 {
+    font-size: 3rem;
+    color: #FFA400;
+    margin-bottom: 40px;
+    font-weight: bold;
+    z-index: 2;
+    margin-top: 20px;
 }
 
-.nav-icon {
-    width: 30px;
-    height: 30px;
+/* Main text */
+.overlay p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    z-index: 2;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for each box description */
+.box-description {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    z-index: 2;
+}
+
+.box-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.box-item p {
+    font-size: 1rem;
+    color: #333;
+    font-weight: normal;
+}
+
+/* Background image */
+.overlay img {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.3; /* Faded background */
+    pointer-events: none; /* Make sure image doesn't interfere with clicks */
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .box-description {
+        grid-template-columns: 1fr;
+    }
+
+    .overlay h1 {
+        font-size: 2rem;
+    }
+
+    .overlay p {
+        font-size: 1rem;
+    }
+}
+
+
+#Achtergrond {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
